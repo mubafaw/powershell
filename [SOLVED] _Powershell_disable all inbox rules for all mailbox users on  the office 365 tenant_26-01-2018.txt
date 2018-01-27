@@ -1,0 +1,19 @@
+#This checks every users rule on the tenant
+$check_all_user_rules = Get-Mailbox| foreach {Get-InboxRule -Mailbox $_.name}; $check_all_user_rules
+
+$disable_rules = $check_all_user_rules | disable-inboxrule
+
+$enable_rules = $check_all_user_rules | enable-inboxrule
+
+
+
+
+
+
+
+
+
+********NOT NEEDED**********
+#stores all user mailboxes 
+$all_mailboxes = Get-Mailbox
+
